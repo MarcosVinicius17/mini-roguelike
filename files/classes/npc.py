@@ -33,6 +33,12 @@ class NPC():
 
     def get_description(self):
         return self.description
+
+    def take_damage(self,dmg):
+        print(self.name, " took ", dmg, " of damage")
+        self.hp -= dmg
+        if self.hp <= 0:
+            print(self.name, " is dead")
 '''
 Create all npcs here.
 '''
@@ -81,8 +87,6 @@ survivalist_d = {"name": "Survivalist",
 "boss":False
 }
 
-'''common_enemies = [thug,mutated_dog,rogue_soldier,scavenger,survivalist]'''
-
 '''
 Those 4 below are the bosses. Only spawn in certain circustances
 '''
@@ -128,7 +132,6 @@ abomination_d = {"name": "Human abomination",
 
 def spawn_npc():
     enemy_odd = random.randint(1,100)
-    #print("Enemy odd: ", enemy_odd)
     if enemy_odd < 20:
         thug = NPC(thug_d["name"],thug_d["description"],thug_d["hp"],thug_d["attack"],thug_d["hostile"],thug_d["inventory"],thug_d["boss"])
         return thug

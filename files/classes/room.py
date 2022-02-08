@@ -63,12 +63,13 @@ bunker_dict = {
 
 
 '''Pick a random room from rooms_list, generate some random room and a list of enemies inside. Dont forget about the chance of being a non hostile room.'''
-def create_room():
-    '''
-    house = 20%, warehouse = 20%, metro = 10%, 
+'''
+    The odds are: house = 20%, warehouse = 20%, metro = 10%, 
     military outpost = 5%, asylum = 10%,community center = 
     20%, mall = 10%, bunker = 5%
     '''
+def create_room():
+
     room_index = random.randint(1,100)
     if room_index < 20:
         abandoned_house = room(abandoned_house_dict["name"],abandoned_house_dict["description"])
